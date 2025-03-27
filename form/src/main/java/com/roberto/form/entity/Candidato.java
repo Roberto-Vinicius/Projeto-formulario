@@ -7,6 +7,8 @@ import jakarta.validation.constraints.*;
 import lombok.Data;
 import java.time.LocalDateTime;
 
+import com.roberto.form.entity.enums.Escolariedade;
+
 @Table(name = "Candidato")
 @Entity(name = "candidato")
 @Data
@@ -36,9 +38,8 @@ public class Candidato {
   @Column(nullable = false)
   private String cargoDesejado;
 
-  @NotBlank(message = "A escolaridade é obrigatória.")
   @Column(nullable = false)
-  private String escolaridade;
+  private Escolariedade escolaridade; // Enum para escolaridade (Graduação, Mestrado, etc.)
 
   @Column(columnDefinition = "TEXT") // Permite textos longos
   private String observacoes;

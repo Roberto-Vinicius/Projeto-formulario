@@ -3,9 +3,9 @@ package com.roberto.form.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
 
 import com.roberto.form.entity.Candidato;
+import com.roberto.form.entity.enums.Escolariedade;
 import com.roberto.form.repository.CandidateRepository;
 
 import java.time.LocalDateTime;
@@ -18,7 +18,6 @@ public class TestConfig implements CommandLineRunner {
 
   @Override
   public void run(String... args) throws Exception {
-    System.out.println("🏁 Inserindo candidato no banco...");
     
     candidateRepository.save(new Candidato(
       null, // ID gerado automaticamente
@@ -26,7 +25,7 @@ public class TestConfig implements CommandLineRunner {
       "joao@email.com",
       "(11) 98765-4321",
       "Desenvolvedor Java",
-      "Graduação",
+      Escolariedade.GRADUACAO,
       "Experiência com Spring Boot",
       "form//currículo.pdf",
       "192.168.1.1",
